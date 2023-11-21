@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+@mixin disabled-arrow {
+  cursor: default;
+  color: rgb(200, 200, 200);
+  fill: rgb(200, 200, 200);
+}
+
+
+
+.container-pagination {
+    max-width: 1120px;
+    height: 24px;
+    margin: 72px auto 0 auto;
+    padding-bottom: 72px;
+    @media(max-width: 1105px) {
+      width: 694px;
+    }
+    @media(max-width: 770px) {
+      width: 271px;
+    }
+    .block-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .left-block,
+      .left-block-disabled {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px;
+        border: 1px solid black;
+        border-radius: 10%;
+        background: rgb(36, 14, 14);
+        cursor: pointer;
+        &.left-block-disabled {
+          @include disabled-arrow();
+        }
+        .nav,
+        .nav-disabled {
+          &.nav-disabled {
+            @include disabled-arrow();
+          }
+          color: white;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 24px;
+          @media(max-width: 770px) {
+            display: none;
+          }
+        }
+        .icon {
+          cursor: pointer;
+          fill: rgb(200, 200, 200);
+          width: 24px;
+          height: 24px;
+        }
+        .icon-disabled {
+          cursor: default;
+          @include disabled-arrow();
+          width: 24px;
+          height: 24px;
+        }
+      }
+      .middle-block {
+        color: beige;
+        display: flex;
+        gap: 32px;
+        .str3 {
+          @media(max-width: 770px) {
+            display: none;
+          }
+        }
+      }
+      .right-block,
+      .right-block-disabled {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px;
+        border: 1px solid black;
+        border-radius: 10%;
+        background: rgb(36, 14, 14);
+        &.right-block-disabled {
+          @include disabled-arrow();
+        }
+        .nav,
+        .nav-disabled {
+          &.nav-disabled {
+            @include disabled-arrow();
+          }
+          color: white;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 24px;
+          @media(max-width: 770px) {
+            display: none;
+          }
+        }
+        .icon {
+          cursor: pointer;
+          fill: rgb(200, 200, 200);
+          width: 24px;
+          height: 24px;
+        }
+        .icon-disabled {
+          @include disabled-arrow();
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }

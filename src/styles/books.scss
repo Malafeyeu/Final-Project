@@ -1,0 +1,53 @@
+.book-container:hover {
+  box-shadow: 0px 0px 5px 10px rgba(0, 0, 0, .2);
+  border-radius: 5%;
+}
+
+.bookRow-container {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.section-w-books {
+  padding: 30px;
+  .section-w-books__title {
+    cursor: default;
+    font-size: 32px;
+    border-bottom: 1px dashed #ccc;
+    white-space: nowrap;
+    color: #ccd2c9e7;
+  }
+}
+
+.link-book{
+  text-decoration: none;
+  .book-container {
+    width: 300px;
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+    .flex-block {
+      display: flex;
+      flex-flow: column;
+      text-align: center;
+      align-items: center;
+      .book-img {
+        display: block;
+        margin: 0;
+        max-width: 100%;
+        height: auto;
+      }
+      .book-title {
+        color: azure;
+        margin-bottom: 10px;
+      }
+      .book-price {
+        color: rgb(187, 43, 43);
+      }
+    }
+  }
+}

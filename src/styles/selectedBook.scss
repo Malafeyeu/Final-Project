@@ -1,0 +1,111 @@
+.container-selectedBook {
+  margin: 40px auto;
+  width: 100;
+  .nav {
+    margin-left: 20px;
+    color: azure;
+    a {
+      text-decoration: none;
+      color: rgb(190, 142, 238);
+    }
+  }
+  .block-w-book {
+    display: flex;
+    gap: 50px;
+    margin: 20px;
+    
+    .left-block {
+      width: 300px;
+      margin: 0;
+      margin-left: 150px;
+      text-align: center;
+      .left-block_image {
+        width: 300px;
+        background: #d9d4d4b9;
+        border: .5px solid black;
+        border-radius: 2px;
+      }
+      .left-block_btn-buy {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+        background-color: rgba(137, 45, 45, 0.696);
+        a {
+          font-size: 20px;
+          padding: 15px;
+          display: block;
+          width: 100%;
+          color: aliceblue;
+          text-decoration: none;
+        }
+      }
+      .left-block_btn-add-basket {
+        margin-top: 15px;
+        width: 100%;
+        padding: 15px;
+        font-size: 20px;
+        color: black;
+      }
+    }
+    .right-block {
+      margin: 0;
+      width: 60%;
+      color: rgb(0, 0, 0);
+      .container-table {
+        width: 100%;
+        margin: 0;
+        tr:nth-child(even) {
+          background: rgb(152, 140, 152);
+        }
+        tr:nth-child(odd) {
+          background: rgb(90, 55, 90);
+        }
+        tr {
+          td {
+            width: 50%;
+            margin: 0;
+            padding: 5px;
+            a {
+              color: rgb(127, 119, 196);
+              text-decoration: none;
+            }
+          }
+        }
+      }
+      .container-activeTabs {
+        margin-top: 30px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        cursor: default;
+        li {
+          width: 100%;
+          list-style: none;
+          color: aliceblue;
+          font-size: 20px;
+        }
+        .ACTIVE {
+          background: rgb(90, 55, 90);
+          border: 2px solid rgb(240, 240, 240);
+          border-bottom: none;
+        }
+        .DISABLED {
+          background: rgba(90, 55, 90, .3);
+          border-bottom: 2px solid rgb(240, 240, 240);
+        }
+      }
+      .container-tabContent {
+        padding: 20px 5px;
+        color: azure;
+        font-size: 20px;
+        background: rgb(90, 55, 90);
+        border: 2px solid rgb(240, 240, 240);
+        border-top: none;
+        p {
+          padding: 10px;
+        }
+      }
+    }
+  }
+}

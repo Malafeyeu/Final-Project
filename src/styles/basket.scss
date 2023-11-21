@@ -1,0 +1,28 @@
+.container-basket {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border: 2px solid black;
+  background: rgba(27, 18, 18, 0.137);
+  button {
+    padding: 5px;
+    background-color: blanchedalmond;
+    cursor: pointer;
+  }
+  .container-book {
+    color: azure;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    .block-w-image {
+      width: 100px;
+      .image {
+        width: 100px;
+        height: 115px;
+      }
+    }
+    .block-w-info {
+      width: 100%;
+    }
+  }
+}

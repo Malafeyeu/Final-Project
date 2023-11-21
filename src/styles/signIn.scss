@@ -1,0 +1,59 @@
+.container-SignIn {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  font-family: 'Inter';
+  margin: 0 auto;
+  color: white;
+  .container-SignIn_block {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 150px;
+    .container-SignIn__link {
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      margin: 0;
+      padding-top: 20px;
+    }
+    .flex-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 40px;
+      width: 60%;
+      .container-SignIn-form {
+        display: flex;
+        flex-flow: column;
+        width: 60%;
+        padding: 40px;
+        border-radius: 3px;
+        border: 2px solid rgb(100, 100, 100);
+        .label-w-input {
+          width: 100%;
+          margin-top: 10px;
+        }
+        .signIn-inp {
+          width: 100%;
+          margin: 10px 0;
+          padding: 10px;
+          border-radius: 3px;
+          border: none;
+        }
+        .signIn-btn {
+          font-size: 20px;
+          font-weight: 600;
+          margin-top: 30px;
+          width: 100%;
+          height: 50px;
+          border-radius: 5px;
+          background-color: rgb(62, 62, 192);
+          border: 2px solid rgb(55, 55, 180);
+          color: white;
+        }
+      }
+    }
+  }
+}

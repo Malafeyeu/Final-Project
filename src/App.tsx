@@ -1,25 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  Confirmed,
+  SignIn,
+  SignUp,
+  SignUpActivate,
+  SignUpConfirmation,
+  HomePage, 
+  SelectedBook,
+  SearchData,
+  Basket,
+} from "./components";
 
-function App() {
+//voxoha1828@soebing.com
+//evtyzyjdfz1
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path={'/'}>
+          <Route index element={<HomePage />} />
+          <Route path={'basket'} element={<Basket/>} />
+          <Route path={'search'} >
+            <Route path={':id'} element={<SearchData />} />
+          </Route>
+          <Route path={'books'}>
+            <Route path={':id'} element={<SelectedBook/>}/>
+            <Route path={'*'} element={<div>Wrong Page</div>}/>
+          </Route>
+          <Route path={'signUp'} element={<SignUp/>}/>
+          <Route path={'signIn'} element={<SignIn/>}/>
+          <Route path={'signUpConfirmation'} element={<SignUpConfirmation/>}/>
+          <Route path={'confirmed'} element={<Confirmed/>}/>
+          <Route path={'activate/:uid/:token'} element={<SignUpActivate/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
