@@ -38,10 +38,8 @@ const SelectedBook = () => {
             <button 
               className="left-block_btn-add-basket"
               onClick={() => {
-                return dispatch(setBookInBasket(selectedBook)),
-                localStorage.setItem(`${id}`, JSON.stringify(selectedBook?.isbn13))
+                return dispatch(setBookInBasket(selectedBook?.isbn13))
               }}
-            
             > Basket </button>
           </div>
           <div className="right-block">

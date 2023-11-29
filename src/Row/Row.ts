@@ -1,6 +1,6 @@
 import { IBooksInfo } from "../types";
 
-const functionForRow = (arr: IBooksInfo[]) => {
+const Row = (arr: IBooksInfo[]) => {
   let resultArr: any = [];
   for (let i = 0, isFirst = true; i < arr.length;) {
     if (isFirst) { 
@@ -17,4 +17,4 @@ const functionForRow = (arr: IBooksInfo[]) => {
   return resultArr;
 }
 
-export { functionForRow }
+export { Row }

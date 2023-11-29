@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux"
 import { IStoreState } from "../../../types"
 import { useEffect } from "react"
-import { loadSearch, setSelect } from "../../../redux/action-creators"
-import { functionForRow } from "../../../functionForRow"
+import { loadSearch } from "../../../redux/action-creators"
+import { Row } from "../../../Row"
 import { SearchRow } from "./SearchRow"
 import { Pagination } from "../../Pagination"
 import { useParams } from "react-router-dom"
@@ -31,7 +31,7 @@ const SearchData = () => {
           {`"${search}"`} result search
         </h1>
         <p>Found {total} items</p>
-        {searchResult !== undefined ? functionForRow(searchResult).map((el: any) =>
+        {searchResult !== undefined ? Row(searchResult).map((el: any) =>
           <SearchRow 
             key = {el.reduce((prev: string, cur: any) => prev+ '.' + cur.isbn13, '')} 
             books = {el} 

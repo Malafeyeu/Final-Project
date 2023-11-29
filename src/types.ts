@@ -21,7 +21,8 @@ interface IBooksState {
   limit: number;
   total: number;
   currentPage: number;
-  basket: IBooksInfo[] | null;
+  basket: string[];
+  basketLoaded: IBooksInfo[];
 }
 
 interface IUserDataBase {

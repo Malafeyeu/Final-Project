@@ -9,6 +9,7 @@ import {
   SET_SEARCH,
   SET_BOOK_IN_BASKET,
   REMOVE_BOOK,
+  LOAD_BOOKS_IN_BASKET,
 } from "../action-types"
 
 const initialState = {
@@ -16,13 +17,17 @@ const initialState = {
   selectedBook: null,
   search: '',
   searchResult: [] as ISearchResultResponse[],
-  limit: 10,
-  total: 0,
   currentPage: 1,
-  basket: [] as IBooksInfo[] | null,
+  basket: [] as string[],
+  basketLoaded: [] as IBooksInfo[],
 }
 
-export default (state: IBooksState = initialState, action: any) => {
+const cacheState = () => {
+  const bookInfo = localStorage.getItem('book');
+  return bookInfo ? JSON.parse(bookInfo) : initialState;
+}
+
+export default (state: IBooksState = cacheState(), action: any) => {
   switch (action.type) {
     case SET_BOOKS: {
       return ({
@@ -72,13 +77,20 @@ export default (state: IBooksState = initialState, action: any) => {
     case SET_BOOK_IN_BASKET: {
       return ({
         ...state,
-        basket: action.book
+        basket: Array.from(new Set([...state.basket, action.id]))
+      })
+    }
+    case LOAD_BOOKS_IN_BASKET: {
+      return ({
+        ...state,
+        basketLoaded: action.book
       })
     }
     case REMOVE_BOOK: {
       return ({
         ...state,
-        basket: state.basket?.filter((el: any) => el?.isbn13 !== action.book)
+        basketLoaded: state.basketLoaded?.filter((el: any) => el?.isbn13 !== action.book),
+        basket: []
       })
     }
       default: {

@@ -18,10 +18,7 @@ const ElementBasket = ({books}: any) => {
       </div>
       <button
         className='btn-delete-book'
-        onClick={() => {
-          return dispatch(removeBook(id)),
-          localStorage.removeItem(`${books?.isbn13}`)
-        }}
+        onClick={() => dispatch(removeBook(id))}
       > Remove Book </button>
     </div>
   )

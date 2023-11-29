@@ -51,20 +51,9 @@ const setSelectedBook = (book: IBooksInfo) => ({
   book
 })
 
-const loadBook = (id: number | string | null | string[]) => ({
+const loadBook = (payload: any) => ({
   type: LOAD_BOOK,
-  id
-})
-
-const setSelect = (limit: number, currPage: number) => ({
-  type: SET_LIMIT,
-  limit,
-  currPage
-})
-
-const setTotal = (total: number) => ({
-  type: SET_TOTAL,
-  total
+  payload
 })
 
 const setCurrentPage = (currPage: number) => ({
@@ -72,13 +61,18 @@ const setCurrentPage = (currPage: number) => ({
   currPage
 })
 
-const setBookInBasket = (book: IBooksInfo | null) => ({
+const setBookInBasket = (id: string[]) => ({
   type: SET_BOOK_IN_BASKET,
-  book
+  id
 })
 
 const removeBook = (book: any) => ({
   type: REMOVE_BOOK,
+  book
+})
+
+const loadBooksInBasket = (book: any) => ({
+  type: LOAD_BOOKS_IN_BASKET,
   book
 })
 
@@ -89,13 +83,13 @@ function* fetchNewBooks() {
 }
 
 function* fetchLoadBook(action: any) {
-  if(Array.isArray(action.id)) {
-    let requests = (action.id).map((el: any) => fetch(`https://api.itbook.store/1.0/books/${el}`))
+  if(Array.isArray(action.payload)) {
+    let requests = (action.payload).map((el: any) => fetch(`https://api.itbook.store/1.0/books/${el}`))
     const responses: any[] = yield Promise.all(requests);
     const books: IBooksInfo = yield Promise.all(responses.map(response => response.json()))
-    yield put(setBookInBasket(books));
+    yield put(loadBooksInBasket(books));
   } else {
-    const response: Response = yield fetch(`https://api.itbook.store/1.0/books/${action.id}`);
+    const response: Response = yield fetch(`https://api.itbook.store/1.0/books/${action.payload}`);
     const book: IBooksInfo = yield response.json();  
     yield put(setSelectedBook(book))
   }
@@ -120,10 +114,9 @@ export {
   loadBooks,
   setSearch,
   loadBook,
-  setSelect,
-  setTotal,
   setCurrentPage,
   loadSearch,
   setBookInBasket,
-  removeBook
+  removeBook,
+  loadBooksInBasket
 }
